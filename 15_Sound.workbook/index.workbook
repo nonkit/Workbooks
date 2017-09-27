@@ -1,4 +1,6 @@
 ---
+id: a8eb3a82-a440-47ac-be19-e4183b0b8b41
+title: 15. Sound Object
 uti: com.xamarin.workbook
 platforms:
 - WPF
@@ -106,8 +108,8 @@ In Xamarin Workbooks, this operation doesn’t make any sound.
 ```csharp
 Sound.PlayMusic("O4C4E4G4O5C4");
 ```
-___
-### See Also
+
+## See Also
 
 * [Small Basic Curriculum: Lesson 2.4: Sound, Program, and Text Objects](https://social.technet.microsoft.com/wiki/contents/articles/16371.small-basic-curriculum-lesson-2-4-sound-program-and-text-objects.aspx) (wiki)
 

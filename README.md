@@ -1,4 +1,4 @@
-# Workbooks
+﻿# Workbooks
 ## Programming with Small Basic Objects
 
 This project contains Xamarin Workbooks to learn programming with Microsoft Small Basic objects.
@@ -16,8 +16,10 @@ This project contains Xamarin Workbooks to learn programming with Microsoft Smal
 |---|---|---|---|
 |1|Array|✓|✓|
 |2|Clock|✓|✓|
-|16|Sound| |✓|
-|17|Stack|✓|✓|
+|3|Controls| |✓|
+|15|Sound| |✓|
+|16|Stack|✓|✓|
+|19|Timer| |✓|
 
 ## See Also
 * [Xamarin Workbooks: Programing with Small Basic Objects](https://gallery.technet.microsoft.com/Xamarin-Workbooks-a4ee4e03) (TechNet Gallery)

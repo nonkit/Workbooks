@@ -1,0 +1,65 @@
+---
+uti: com.xamarin.workbook
+id: 78fc05ac-eb9a-47ad-aa5a-d06b72f25611
+title: 19. Timer Object
+platforms:
+- WPF
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Programming with Small Basic Objects
+
+## 19. Timer Object
+
+![Timer](Timer.png)
+
+### 19.1 Preparation
+
+Add package SmallBasic.Workbook 1.2.0 to call Small Basic operations in Xamarin Workbooks.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+Declear to use `Microsoft.SmallBasic.Library` for not to write long name such as `Microsoft.SmallBasic.Library.Timer.Interval`.
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+### 19.2 Event Handler
+
+Following function (subroutine) handles Timer tick event.
+
+```csharp
+public void OnTick() {
+    Turtle.Move(6);
+    Turtle.Turn(6);
+}
+```
+
+### 19.3 Property and Event
+
+Following code sets a property `Timer.Interval` and an event `Timer.Tick`.
+
+```csharp
+Timer.Interval = 1000;
+Timer.Tick += OnTick;
+```
+
+### 19.4 Methods
+
+Following methods (operations) pause and resume the Timer event.  Remove one of following // and push Ctrl+R.
+
+```csharp
+// Timer.Pause();
+// Timer.Resume();
+```
+
+## See Also
+
+* [Small Basic Reference Documentation: Timer Object](https://social.technet.microsoft.com/wiki/contents/articles/23726.small-basic-reference-documentation-timer-object.aspx) (wiki)
+
+* [Small Basic: Timer](https://social.technet.microsoft.com/wiki/contents/articles/31457.small-basic-timer.aspx) (wiki)
