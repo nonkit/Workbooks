@@ -1,0 +1,93 @@
+﻿---
+id: d093c70d-588f-4db6-a83b-5afc57e17bbe
+title: 3. Controls Object
+uti: com.xamarin.workbook
+platforms:
+- WPF
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Programming with Small Basic Objects
+
+## 3. Controls Object
+
+![Control](Control.png)
+
+### 3.1 Preparation
+
+Add package SmallBasic.Workbook 1.2.0 to call Small Basic operations in Xamarin Workbooks.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+Declear to use `Microsoft.SmallBasic.Library` for not to write long name such as `Microsoft.SmallBasic.Library.Stack.GetCount`.
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+Define Small Basic vairables as follows.
+
+```csharp
+public Primitive txt, tbox, mbox;
+```
+
+### 3.2 Properties
+
+Controls object has 2 properties.
+
+Following code will show syntax error in Small Basic.  But just a variable or an expression in Xamarin Workbooks code shows the content or the result.
+
+Each property is read only and has a value as follows.
+
+```csharp
+Controls.LastClickedButton
+```
+
+```csharp
+Controls.LastTypedTextBox
+```
+
+### 3.3 Events
+
+Controls object has 2 events.  Following functions (subroutines) are event handlers for the Controls events.
+
+```csharp
+public void OnButtonClicked() {
+    txt = Controls.GetTextBoxText(tbox);
+    GraphicsWindow.Title = txt;
+}
+public void OnTextTyped() {
+    txt = Controls.GetTextBoxText(tbox);
+    Controls.SetTextBoxText(mbox, txt);
+}
+```
+
+Following code sets Controls events.
+
+```csharp
+Controls.ButtonClicked += OnButtonClicked;
+Controls.TextTyped += OnTextTyped;
+```
+
+Following code creates a text box, a button, and a multi-line text box on the graphics window.
+
+```csharp
+GraphicsWindow.BrushColor = "Black";
+GraphicsWindow.FontSize = 12;
+tbox = Controls.AddTextBox(10, 10);
+Controls.AddButton("OK", 180, 10);
+GraphicsWindow.FontSize = 20;
+mbox = Controls.AddMultiLineTextBox(10, 40);
+```
+
+## See Also
+
+* [Small Basic Curriculum: Lesson 3.5: The Controls Object](https://social.technet.microsoft.com/wiki/contents/articles/16378.small-basic-curriculum-lesson-3-5-the-controls-object.aspx)  (wiki)
+
+* [Small Basic Reference Documents: Controls Object](https://social.technet.microsoft.com/wiki/contents/articles/23585.small-basic-reference-documentation-clock-object.aspx) (wiki)
+
+* [Small Basic: Controls](http://social.technet.microsoft.com/wiki/contents/articles/25278.small-basic-controls.aspx)  (wiki)
