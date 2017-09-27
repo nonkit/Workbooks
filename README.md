@@ -3,6 +3,8 @@
 
 This project contains Xamarin Workbooks to learn programming with Microsoft Small Basic objects.
 
+![Xamarin Workbooks](img/1_Array.png)
+
 ## Usage
 1. Install [Xamarin Workbooks](https://developer.xamarin.com/workbooks/). 
 1. Download Workbooks.zip here. 
