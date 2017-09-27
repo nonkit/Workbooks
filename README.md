@@ -14,10 +14,10 @@ This project contains Xamarin Workbooks to learn programming with Microsoft Smal
 ## Availability
 |#|Object|Mac|Windows|
 |---|---|---|---|
-|1|Array|?|?|
-|2|Clock|?|?|
-|16|Sound| |?|
-|17|Stack|?|?|
+|1|Array|✓|✓|
+|2|Clock|✓|✓|
+|16|Sound| |✓|
+|17|Stack|✓|✓|
 
 ## See Also
 * [Xamarin Workbooks: Programing with Small Basic Objects](https://gallery.technet.microsoft.com/Xamarin-Workbooks-a4ee4e03) (TechNet Gallery)
