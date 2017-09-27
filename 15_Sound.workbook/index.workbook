@@ -1,0 +1,120 @@
+---
+uti: com.xamarin.workbook
+platforms:
+- WPF
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Programing with Small Basic Objects
+
+## 15. Sound Object
+
+![Sound](Sound.png)
+
+### 15.1 Preparation
+
+Add package SmallBasic.Workbook 1.2.0 to call Small Basic operations in this workbook.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+Declear to use Microsoft.SmallBasic.Library for not to write long name such like Microsoft.SmallBasic.Library.Sound.PlayBellRing().
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+### 15.2 PlayBellRing Operation
+
+There are two operations (methods) for bell sound.  One is PlayBellRing operation, another is PlayBellRingAndWait operation.  The last one will wait to end the sound.
+
+![Bell](Bell.png)
+
+Let’s push play button below.
+
+```csharp
+Sound.PlayBellRingAndWait();
+```
+
+### 15.3 PlayChime Operation
+
+There are two operations for chime sound.  One is PlayChime operation, another is PlayChimeAndWait operation.  The last one will wait to end the sound.
+
+![Chime](Chime.png)
+
+Let’s push play button below.
+
+```csharp
+Sound.PlayChimeAndWait();
+```
+
+### 15.4 PlayChimes Operation
+
+There are two operations for pop chimes sound.  One is PlayChimes operation, another is PlayChimesAndWait operation.  The last one will wait to end the sound.
+
+Let’s push play button below.
+
+```csharp
+Sound.PlayChimesAndWait();
+```
+
+### 15.5 PlayClick Operation
+
+There are two operations for click sound.  One is PlayClick operation, another is PlayClickAndWait operation.  The last one will wait to end the sound.
+
+![Click](Mouse.png)
+
+Let’s push play button below.
+
+```csharp
+Sound.PlayClickAndWait();
+```
+
+### 15.6 Play Audio Files
+
+Play operation plays audio files such as mp3, wav and wma.  There are two operations to play audio files.  One is Play operation, anothor is PlayAndWait operation.  The last one will wait to end the sound.  This operation doesn’t seem to make any sound in Xamarin Workbooks.
+
+```csharp
+Sound.PlayAndWait("tada.wav");
+```
+
+Pause operation will pause the audio.  And Play operation will continue to play the audio.
+
+```csharp
+Sound.Play("tada.wav");
+Sound.Pause("tada.wav");
+Sound.Play("tada.wav");
+```
+
+Stop operation will stop the audio.
+
+```csharp
+Sound.Stop("tada.wav");
+```
+
+### 15.7 PlayMusic Operation
+
+PlayMusic operation plays MML (Music Macro Language). This operation will wait to end the sound.
+
+![Music](Music.png)
+
+In Xamarin Workbooks, this operation doesn’t make any sound.
+
+```csharp
+Sound.PlayMusic("O4C4E4G4O5C4");
+```
+___
+### See Also
+
+* [Small Basic Curriculum: Lesson 2.4: Sound, Program, and Text Objects](https://social.technet.microsoft.com/wiki/contents/articles/16371.small-basic-curriculum-lesson-2-4-sound-program-and-text-objects.aspx) (wiki)
+
+* [Small Basic Reference Documentation: Sound Object](https://social.technet.microsoft.com/wiki/contents/articles/23625.small-basic-reference-documentation-sound-object.aspx) (wiki)
+
+* [Small Basic: Sound](https://social.technet.microsoft.com/wiki/contents/articles/25285.small-basic-sound.aspx) (wiki)
+
+* [Small Basic: How to Use Sound.PlayMusic()](https://social.technet.microsoft.com/wiki/contents/articles/16458.small-basic-how-to-use-sound-playmusic.aspx) (wiki)
+
+* [How do you get a sound for your program?](https://blogs.msdn.microsoft.com/smallbasic/2014/09/08/how-do-you-get-a-sound-for-your-program/) (blog)

@@ -1,0 +1,91 @@
+---
+uti: com.xamarin.workbook
+platforms:
+- MacNet45
+- WPF
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Programming with Small Basic Objects
+
+## 2. Clock Object
+
+![Clock](Clock.png)
+
+### 2.1 Preparation
+
+Add package SmallBasic.Workbook 1.2.0 to call Small Basic operations in Xamarin Workbooks.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+Declear to use `Microsoft.SmallBasic.Library` for not to write long name such as `Microsoft.SmallBasic.Library.Stack.GetCount`.
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+### 2.2 Clock Properties
+
+Clock object has 11 properties, no operations, no events.
+
+Following code will show syntax error in Small Basic.  But just a variable or an expression in Xamarin Workbooks code shows the content or the result.
+
+Each property is read only and has a value as follows.
+
+```csharp
+Clock.Date
+```
+
+```csharp
+Clock.Day
+```
+
+```csharp
+Clock.Hour
+```
+
+```csharp
+Clock.ElapsedMilliseconds
+```
+
+```csharp
+Clock.Millisecond
+```
+
+```csharp
+Clock.Minute
+```
+
+```csharp
+Clock.Month
+```
+
+```csharp
+Clock.Second
+```
+
+```csharp
+Clock.Time
+```
+
+```csharp
+Clock.WeekDay
+```
+
+```csharp
+Clock.Year
+```
+
+___
+
+### See Also
+
+* [Small Basic Curriculum: Lesson 2.5: Clock, Desktop, and Dictionary Objects](https://social.technet.microsoft.com/wiki/contents/articles/16372.small-basic-curriculum-lesson-2-5-clock-desktop-and-dictionary-objects.aspx) (wiki)
+
+* [Small Basic Reference Documentation: Clock Object](https://social.technet.microsoft.com/wiki/contents/articles/23585.small-basic-reference-documentation-clock-object.aspx) (wiki)
+
+* [Small Basic: Clock](https://social.technet.microsoft.com/wiki/contents/articles/33144.small-basic-clock.aspx) (wiki)

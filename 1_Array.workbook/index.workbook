@@ -1,0 +1,172 @@
+---
+uti: com.xamarin.workbook
+platforms:
+- MacNet45
+- WPF
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Programming with Small Basic Objects
+
+## 1. Array Object
+
+![Array](Array.png)
+
+### 1.1 Preparation
+
+Add package SmallBasic.Workbook 1.2.0 to call Small Basic operations in Xamarin Workbooks.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+Declear to use `Microsoft.SmallBasic.Library` for not to write long name such as `Microsoft.SmallBasic.Library.Array.GetItemCount`.
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+Define type `Primitive` for Small Basic variable `toAlpha`.
+
+```csharp
+public Primitive toAlpha;
+```
+
+### 1.2 Set Value
+
+An array has multiple values with the indices.  Following array contains the names (values) of digits (indices).  Small Basic array can be initialized with text (string) formatted with `index=value;` as follows.
+
+```csharp
+toAlpha = "0=zero;1=one;2=two;3=three;4=four;5=five;";
+toAlpha = toAlpha + "6=six;7=seven;8=eight;9=nine;";
+```
+
+Or you can set value for each index as follows.
+
+```csharp
+toAlpha[10] = "ten";
+toAlpha[11] = "eleven";
+```
+
+SetValue operation (method) is obsolete but remains for compatible reason.  This operation doesn’t work in Xamarin Workbooks.
+
+```csharp
+Array.SetValue(toAlpha, 12, "twelve");
+```
+
+### 1.3 Get Value
+
+Following code will cause error in Small Basic.  But Xamarin Workbooks returns the value of the variable (or the expression).
+
+Run following code.  Then you can get the name of `0`.
+
+```csharp
+toAlpha[0]
+```
+
+Run following code.  Then you can get the name of `5`.
+
+```csharp
+toAlpha[5]
+```
+
+GetValue operation is obsolete but remains for compatible reason.  But in Xamarin Workbooks, it doesn’t seem to run properly.
+
+```csharp
+Array.GetValue(toAlpha, 5)
+```
+
+### 1.4 Remove Entry
+
+Assigning null text (string) `““` removes the entry (both the index and the value).
+
+```csharp
+toAlpha[10] = "";
+```
+
+RemoveValue operation is obsolete but remains for compatible reason. But in Xamarin Workbooks, it doesn’t seem to run properly.
+
+```csharp
+Array.RemoveValue(toAlpha, 11)
+```
+
+### 1.5 ContainsValue Operation
+
+ContaisValue operation returns `“True”` if the given value is contained in the array.  `“False”` if not.
+
+```csharp
+Array.ContainsValue(toAlpha, "nine")
+```
+
+Following case ContainsValue will return `“False”` bacause the value `“ten”` is not contained in the array `toAlpha`.
+
+```csharp
+Array.ContainsValue(toAlpha, "ten")
+```
+
+### 1.6 ContainsIndex Operation
+
+ContainsIndex operation will return `“True”` if the given index is contained in the array.  `“False”` if not.
+
+```csharp
+Array.ContainsIndex(toAlpha, 4)
+```
+
+Following case, ContainsIndex will return `“False”` because the index `-1` is not contained in the array `toAlpha`.
+
+```csharp
+Array.ContainsIndex(toAlpha, -1)
+```
+
+### 1.7 GetItemCount Operation
+
+GetItemCount operation will return the number of entries in the given array.
+
+```csharp
+Array.GetItemCount(toAlpha)
+```
+
+### 1.8 GetAllIndices Operation
+
+GetAllIndices operation will get all indices of the array as an array.
+
+```csharp
+Array.GetAllIndices(toAlpha)
+```
+
+### 1.9 Associative Array
+
+Small Basic array is allowed to use texts as indices.  Following code creates array `toNum` contains digits as values and the names as indices.
+
+```csharp
+public Primitive toNum, i, n, index;    // variables
+n = Array.GetItemCount(toAlpha);        // number of entries
+index = Array.GetAllIndices(toAlpha);   // indices
+for (i = 1; i <= n; i++) {
+    toNum[toAlpha[index[i]]] = index[i];
+}
+```
+
+Following code will show the contents of the array `toNum`.
+
+```csharp
+toNum
+```
+
+Following code will show the value of `toNum[“four”]`.  Note that the index is case insensitive.  So, `toNum[“FOUR”]` and `toNum[“four”]` is the same.
+
+```csharp
+toNum["FOUR"]
+```
+___
+### See Also
+
+* [Small Basic Curriculum: Lesson 3.2: Stacks and Arrays](https://social.technet.microsoft.com/wiki/contents/articles/16375.small-basic-curriculum-lesson-3-2-stacks-and-arrays.aspx) (wiki)
+
+* [Small Basic Getting Started Guide: Chapter 10: Arrays](https://social.technet.microsoft.com/wiki/contents/articles/16078.small-basic-getting-started-guide-chapter-10-arrays.aspx) (wiki)
+
+* [Small Basic Reference Documentation: Array Object](https://social.technet.microsoft.com/wiki/contents/articles/23584.small-basic-reference-documentation-array-object.aspx) (wiki)
+
+* [Small Basic: Array Basics](https://social.technet.microsoft.com/wiki/contents/articles/15062.small-basic-array-basics.aspx) (wiki)
