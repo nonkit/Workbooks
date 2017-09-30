@@ -41,69 +41,101 @@ Math.Pi
 
 ### 10.3 Methods
 
-Math object has 16 methods (operations).
+Math object has 20 methods (operations).
 
 #### 10.3.1 Abs Method
+
+![Abs](Abs.png)
 
 ```csharp
 Math.Abs(-32.233)
 ```
 
-#### 10.3.2 Ceiling Method
+#### 10.3.2 ArcCos Method
+
+![ArcCos](ArcCos.png)
+
+```csharp
+Math.ArcCos(-1)
+```
+
+#### 10.3.3 ArcSin Method
+
+![ArcSin](ArcSin.png)
+
+```csharp
+Math.ArcSin(1)
+```
+
+#### 10.3.4 ArcTan Method
+
+![ArcTan](ArcTan.png)
+
+#### 10.3.5 Ceiling Method
+
+![Ceiling](Ceiling.png)
 
 ```csharp
 Math.Ceiling(32.233)
 ```
 
-#### 10.3.3 Cos Method
+#### 10.3.6 Cos Method
+
+![Cos](Cos.png)
 
 ```csharp
 Math.Cos(Math.Pi)
 ```
 
-#### 10.3.4 Floor Method
+#### 10.3.7 Floor Method
+
+![Floor](Floor.png)
 
 ```csharp
 Math.Floor(32.233)
 ```
 
-#### 10.3.5 GetDegrees Method
+#### 10.3.8 GetDegrees Method
 
 ```csharp
 Math.GetDegrees(Math.Pi)
 ```
 
-#### 10.3.6 GetRadians Method
+#### 10.3.9 GetRadians Method
 
 ```csharp
 Math.GetRadians(180)
 ```
 
-#### 10.3.7 GetRandomNumber Method
+#### 10.3.10 GetRandomNumber Method
 
 ```csharp
 Math.GetRandomNumber(10)
 ```
 
-#### 10.3.8 Log Method
+#### 10.3.11 Log Method
+
+![Log](Log.png)
 
 ```csharp
 Math.Log(100)
 ```
 
-#### 10.3.9 Max Method
+#### 10.3.12 Max Method
 
 ```csharp
 Math.Max(0, 1)
 ```
 
-#### 10.3.10 Min Method
+#### 10.3.13 Min Method
 
 ```csharp
 Math.Min(0, 1)
 ```
 
-#### 10.3.11 NaturalLog Method
+#### 10.3.14 NaturalLog Method
+
+![NaturalLog](NaturalLog.png)
 
 ```csharp
 public Primitive e = 2.718281828459045;
@@ -113,32 +145,48 @@ public Primitive e = 2.718281828459045;
 Math.NaturalLog(e)
 ```
 
-#### 10.3.12 Power Method
+#### 10.3.15 Power Method
 
 ```csharp
 Math.Power(19, 2)
 ```
 
-#### 10.3.13 Remainder Method
+#### 10.3.16 Remainder Method
+
+![Remainder](Remainder.png)
 
 ```csharp
 Math.Remainder(255, 15)
 ```
 
-#### 10.3.14 Round Method
+#### 10.3.17 Round Method
+
+![Round](Round.png)
 
 ```csharp
 Math.Round(32.233)
 ```
 
-10\.3.15 Sin Method
+#### 10.3.18 Sin Method
+
+![Sin](Sin.png)
 
 ```csharp
 Math.Sin(Math.Pi)
 ```
 
-10\.3.16 SquareRoot Method
+#### 10.3.19 SquareRoot Method
+
+![SquareRoot](SquareRoot.png)
 
 ```csharp
 Math.SquareRoot(65536)
+```
+
+#### 10.3.20 Tan Method
+
+![Tan](Tan.png)
+
+```csharp
+Math.Tan(Math.Pi)
 ```
