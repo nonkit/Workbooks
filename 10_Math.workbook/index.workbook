@@ -1,0 +1,144 @@
+---
+uti: com.xamarin.workbook
+id: 632c11eb-70f3-4d1f-9d58-d9ccc491c490
+title: 10. Math Object
+platforms:
+- Console
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Programming with Small Basic Objects
+
+## 10. Math Object
+
+![Math](Math.png)
+
+### 10.1 Preparation
+
+Add package SmallBasic.Workbook 1.2.0 to call operations in Xamarin Workbooks.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+Declear to use `Microsoft.SmallBasic.Library` for not to write long name such as `Microsoft.SmallBasic.Library.Math.Pi`.
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+### 10.2 Property
+
+Math object has one property Pi.  Following code will cause syntax error in Small Basic.  But Xamarin Workbooks shows the value of the variable (or the expression).
+
+Run following code.  Then you can get the value of π.
+
+```csharp
+Math.Pi
+```
+
+### 10.3 Methods
+
+Math object has 16 methods (operations).
+
+#### 10.3.1 Abs Method
+
+```csharp
+Math.Abs(-32.233)
+```
+
+#### 10.3.2 Ceiling Method
+
+```csharp
+Math.Ceiling(32.233)
+```
+
+#### 10.3.3 Cos Method
+
+```csharp
+Math.Cos(Math.Pi)
+```
+
+#### 10.3.4 Floor Method
+
+```csharp
+Math.Floor(32.233)
+```
+
+#### 10.3.5 GetDegrees Method
+
+```csharp
+Math.GetDegrees(Math.Pi)
+```
+
+#### 10.3.6 GetRadians Method
+
+```csharp
+Math.GetRadians(180)
+```
+
+#### 10.3.7 GetRandomNumber Method
+
+```csharp
+Math.GetRandomNumber(10)
+```
+
+#### 10.3.8 Log Method
+
+```csharp
+Math.Log(100)
+```
+
+#### 10.3.9 Max Method
+
+```csharp
+Math.Max(0, 1)
+```
+
+#### 10.3.10 Min Method
+
+```csharp
+Math.Min(0, 1)
+```
+
+#### 10.3.11 NaturalLog Method
+
+```csharp
+public Primitive e = 2.718281828459045;
+```
+
+```csharp
+Math.NaturalLog(e)
+```
+
+#### 10.3.12 Power Method
+
+```csharp
+Math.Power(19, 2)
+```
+
+#### 10.3.13 Remainder Method
+
+```csharp
+Math.Remainder(255, 15)
+```
+
+#### 10.3.14 Round Method
+
+```csharp
+Math.Round(32.233)
+```
+
+10\.3.15 Sin Method
+
+```csharp
+Math.Sin(Math.Pi)
+```
+
+10\.3.16 SquareRoot Method
+
+```csharp
+Math.SquareRoot(65536)
+```
