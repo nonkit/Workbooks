@@ -1,0 +1,119 @@
+---
+id: da2c3343-12d9-4713-92f5-b9e16ab3b11b
+title: 14. Shapes Object
+uti: com.xamarin.workbook
+platforms:
+- WPF
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Programming with Small Basic Objects
+
+## 14. Shapes Object
+
+Shapes object has 18 methods (operations), 0 properties and 0 events.
+
+![Shape](Shape.png)
+
+### 14.1 Preparation
+
+Add package SmallBasic.Workbook 1.2.0 to call Small Basic operations in Xamarin Workbooks.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+Declear to use `Microsoft.SmallBasic.Library` for not to write long name such as `Microsoft.SmallBasic.Library.Shapes.AddRectangle`.
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+Define Small Basic vairables as follows.
+
+```csharp
+public Primitive shp, scale, opacity;
+```
+
+### 14.2 Five Features
+
+Comparing to `GraphicsWindow.DrawXXX` or `GraphicsWindow.FillXXX`, Shapes object has following five features.
+
+* Movable
+
+* Rotatable
+
+* Zoomable
+
+* Can be transparent
+
+* Removable
+
+#### 14.2.1 Movable
+
+There are two methods to move a shape - `Shapes.Animate()` and `Shapes.Move()`.
+
+```csharp
+GraphicsWindow.BrushColor = "Cyan";
+GraphicsWindow.PenWidth = 4;
+GraphicsWindow.PenColor = "DarkCyan";
+shp = Shapes.AddRectangle(200, 100);
+Shapes.Animate(shp, 200, 200, 2000);
+Program.Delay(2000);
+```
+
+```csharp
+Shapes.Move(shp, 300, 200);
+```
+
+#### 14.2.2  Rotatable
+
+A shape is rotatable with `Shapes.Rotate()` method (operation).
+
+```csharp
+Shapes.Rotate(shp, 45);
+```
+
+#### 14.2.3 Zoomable
+
+A shape is zoomable with `Shapes.Zoom()` method (operation).
+
+```csharp
+for (scale = 0.1; scale <= 2; scale += 0.1) {
+    Shapes.Zoom(shp, scale, scale);
+    Program.Delay(500);
+}
+```
+
+#### 14.2.4 Can Be Transparent
+
+A shape can be transparent with `Shapes.SetOpacity()` method (operation).
+
+```csharp
+for (opacity = 100; 10 <= opacity; opacity -= 10) {
+    Shapes.SetOpacity(shp, opacity);
+    Program.Delay(500);
+}
+```
+
+#### 14.2.5 Removable
+
+A shape is removable with `Shapes.Remove()` method (operation).
+
+```csharp
+Shapes.Remove(shp);
+```
+
+## See Also
+
+* [Small Basic Curriculum: Lesson 2.3: Exploring Shapes](https://social.technet.microsoft.com/wiki/contents/articles/16370.small-basic-curriculum-lesson-2-3-exploring-shapes.aspx) (wiki)
+
+* [Small Basic Curriculum: Lesson 4.1: Playing with Shapes](https://social.technet.microsoft.com/wiki/contents/articles/16380.small-basic-curriculum-lesson-4-1-playing-with-shapes.aspx) (wiki)
+
+* [Small Basic Getting Started Guide: Chapter 7: Fun with Shapes](https://social.technet.microsoft.com/wiki/contents/articles/16075.small-basic-getting-started-guide-chapter-7-fun-with-shapes.aspx)  (wiki)
+
+* [Small Basic Reference Documentation: Shapes Object](https://social.technet.microsoft.com/wiki/contents/articles/23624.small-basic-reference-documentation-shapes-object.aspx) (wiki)
+
+* [Small Basic: GraphicsWindow Basics](https://social.technet.microsoft.com/wiki/contents/articles/15059.small-basic-graphicswindow-basics.aspx) (wiki)

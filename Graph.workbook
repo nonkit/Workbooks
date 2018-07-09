@@ -1,0 +1,413 @@
+---
+uti: com.xamarin.workbook
+id: 4446e290-ff45-4011-860b-cff651ef9f70
+title: Graph
+platforms:
+- WPF
+packages:
+- id: SmallBasic.Workbook
+  version: 1.2.0
+---
+
+# Graph Drawing Tool with Small Basic Library
+
+## 1. Preparation
+
+The original of this workbook is from Small Basic program RQX345-5.
+
+```csharp
+#r "SmallBasicLibrary"
+```
+
+```csharp
+using Microsoft.SmallBasic.Library;
+```
+
+Following code is a header of this program.
+
+```csharp
+/* Graph of y=Power(2,x)
+ * Version 0.8
+ * Copyright © 2015-2017 Nonki Takahashi.  The MIT License.
+ * Last update 2017-09-30
+ */
+
+public Primitive _gwx, _gwy, _x, _y, continuous, dx, dy, gh, gw, gwvp, gwx, gwx1, gwx2, gwy, gwy1, gwy2, height, k, maxX, minX, num, ox, oy, p, part, sign, textFx, vp, width, x, x1, x2, y, y1, y2;
+```
+
+## 2. Functions
+
+Following code defines a function `y=Math.Abs(x)` to be drawn as a graph.
+
+```csharp
+public void Abs() {
+    // Function of x | to draw graph
+    y = Math.Abs(x);
+}
+
+public void Abs_GetProperties() {
+    // Function of x | Get properties
+    textFx = "Math.Abs(x)";
+    minX[1] = x1;
+    maxX[1] = x2;
+    continuous[1] = "True";
+    part = 1;
+}
+```
+
+Following code defines a function `y=ArcTan(x)` to be drawn as a graph.
+
+```csharp
+public void ArcTan() {
+    // Function of x | to draw graph
+    y = Math.ArcTan(x);
+}
+
+public void ArcTan_GetProperties() {
+    // Function of x | Get properties
+    textFx = "Math.ArcTan(x)";
+    minX[1] = x1;
+    maxX[1] = x2;
+    continuous[1] = "True";
+    part = 1;
+}
+```
+
+Follwing code defines a function `y=Math.Cos(x)` to be drawn as a graph.
+
+```csharp
+public void Cos() {
+    // Function of x | to draw graph
+    y = Math.Cos(x);
+}
+
+public void Cos_GetProperties() {
+    // Function of x | Get properties
+    textFx = "Math.Cos(x)";
+    minX[1] = x1;
+    maxX[1] = x2;
+    continuous[1] = "True";
+    part = 1;
+}
+```
+
+Following code defines a function `y=Math.Power(2,x)` to be drawn as a graph.
+
+```csharp
+public void Power() {
+    // Function of x | to draw graph
+    y = Math.Power(2, x);
+}
+
+public void Power_GetProperties() {
+    // Function of x | Get properties
+    textFx = "Math.Power(2,x)";
+    minX[1] = x1;
+    maxX[1] = 3;
+    continuous[1] = "True";
+    part = 1;
+}
+```
+
+Following code defines a function y=Remainder(x,2) to be drawn as a graph.
+
+```csharp
+public void Remainder() {
+    // Function of x | to draw graph
+    y = Math.Remainder(x, 2);
+}
+
+public void Remainder_GetProperties() {
+    // Function of x | Get properties
+    textFx = "Math.Remainder(x,2)";
+    minX[1] = x1;
+    maxX[1] = x2;
+    continuous[1] = "False";
+    part = 1;
+}
+```
+
+Following code defines a function `y=SquareRoot(x)` to be drawn as a graph.
+
+```csharp
+public void SquareRoot() {
+    // Function of x | to draw graph
+    y = Math.SquareRoot(x);
+}
+
+public void SquareRoot_GetProperties() {
+    // Function of x | Get properties
+    textFx = "Math.SquareRoot(x)";
+    minX[1] = 0;
+    maxX[1] = x2;
+    continuous[1] = "True";
+    part = 1;
+}
+```
+
+Following code defines a function `y=Math.Tan(x)` to be drawn as a graph.
+
+```csharp
+public void Tan() {
+    // Function of x | to draw graph
+    y = Math.Tan(x);
+}
+
+public void Tan_GetProperties() {
+    // Function of x | Get properties
+    textFx = "Math.Tan(x)";
+    minX[1] = x1;
+    maxX[1] = x2;
+    continuous[1] = "True";
+    part = 1;
+}
+```
+
+## 3. Select One to Draw
+
+Following code defines a function to be draw as a graph.
+
+```csharp
+public void Fx() {
+    // Function of x | to draw graph
+    Power();
+}
+
+public void Fx_GetProperties() {
+    // Function of x | Get properties
+    Power_GetProperties();
+}
+```
+
+## 4. Graph Pseudo Class
+
+Following functions (subroutines) are for graph.  These names are started with “Graph\_”.  This means a pseudo class name.
+
+```csharp
+public void Graph_Draw() {
+    /* Graph | Draw graph
+     * param part - number of part
+     * param minX[] - minimum X for each part
+     * param maxX[] - maximum X for each part
+     */
+    for (p = 1; p <= part; p++) {
+        for (x = minX[p]; x <= maxX[p]; x += dx) {
+            Fx();
+            Graph_DrawLine();
+            _x = x;
+            _y = y;
+        }
+    }
+}
+
+public void Graph_SetGWViewPort(Primitive x, Primitive y, Primitive width, Primitive height) {
+    /* Graph | Set graphics window view port
+     * param x - left of the view port
+     * param y - top of the view port
+     * param width - of the view port
+     * param height - of the view port
+     */
+    gwvp["x"] = x;
+    gwvp["y"] = y;
+    gwvp["width"] = width;
+    gwvp["height"] = height;
+}
+
+public void Graph_SetLogicalViewPort(Primitive x, Primitive y, Primitive width, Primitive height) {
+    /* Graph | Set logical view port
+     * param x - left of the view port
+     * param y - top of the view port
+     * param width - of the view port
+     * param height - of the view port
+     */
+    vp["x"] = x;
+    vp["y"] = y;
+    vp["width"] = width;
+    vp["height"] = height;
+}
+
+public void Graph_ToGWCoordinate() {
+    /* Graph | Convert to grahics window co-ordinate
+     * param x, y - logical co-ordinate
+     * return gwx, gwy - graphics window co-ordinate
+     */
+    gwx = gwvp["x"] + (x - vp["x"]) / vp["width"] * gwvp["width"];
+    gwy = gwvp["y"] + (y - vp["y"]) / vp["height"] * gwvp["height"];
+}
+
+public void Graph_DrawLine() {
+    /* Graph | Draw line
+     * param x, y - logical  point to end line 
+     * param _x, _y - logical point to start line
+     */
+    if (x == 0) {    // for SB 1.2
+        sign = 0;
+    } else {
+        sign = x / Math.Abs(x);
+    }
+    Graph_ToGWCoordinate();
+    if ((_gwx != "") && (continuous[p] || (!continuous[p] && (Math.Abs(gwy - _gwy) < 30)))) {
+        if ((y2 <= _y) && (_y <= y1) && (y2 <= y) && (y <= y1)) {
+            GraphicsWindow.DrawLine(_gwx, _gwy, gwx, gwy);
+        } else if ((y2 <= _y) && (_y <= y1)) {
+            Stack.PushValue("local", x);
+            Stack.PushValue("local", y);
+            Stack.PushValue("local", gwx);
+            Stack.PushValue("local", gwy);
+            if (y < y2) {
+                k = (_y - y2) / (_y - y);
+                x = (1 - k) * _x + k * x;
+                y = y2;
+            } else {
+                k = (y1 - _y) / (y - _y);
+                x = (1 - k) * _x + k * x;
+                y = y1;
+            }
+            Graph_ToGWCoordinate();
+            GraphicsWindow.DrawLine(_gwx, _gwy, gwx, gwy);
+            gwy = Stack.PopValue("local");
+            gwx = Stack.PopValue("local");
+            y = Stack.PopValue("local");
+            x = Stack.PopValue("local");
+        } else if ((y2 <= y) && (y <= y1)) {
+            Stack.PushValue("local", x);
+            Stack.PushValue("local", y);
+            Stack.PushValue("local", gwx);
+            Stack.PushValue("local", gwy);
+            Stack.PushValue("local", _gwx);
+            Stack.PushValue("local", _gwy);
+            _gwx = gwx;
+            _gwy = gwy;
+            if (_y < y2) {
+                k = (y - y2) / (y - _y);
+                x = (1 - k) * x + k * _x;
+                y = y2;
+            } else {
+                k = (y1 - y) / (_y - y);
+                x = (1 - k) * x + k * _x;
+                y = y1;
+            }
+            Graph_ToGWCoordinate();
+            GraphicsWindow.DrawLine(_gwx, _gwy, gwx, gwy);
+            _gwy = Stack.PopValue("local");
+            _gwx = Stack.PopValue("local");
+            gwy = Stack.PopValue("local");
+            gwx = Stack.PopValue("local");
+            y = Stack.PopValue("local");
+            x = Stack.PopValue("local");
+        }
+    }
+    _gwx = gwx;
+    _gwy = gwy;
+}
+
+public void Graph_DrawGrid() {
+    /* Graph | Draw grid
+     * param x1, y1 - logical left top of the grid
+     * param x2, y2 - logical right bottom of the grid
+     * param dx, dy - logical grid pitch
+     */
+    x = x1;
+    y = y1;
+    Graph_ToGWCoordinate();
+    gwx1 = gwx;
+    gwy1 = gwy;
+    x = x2;
+    y = y2;
+    Graph_ToGWCoordinate();
+    gwx2 = gwx;
+    gwy2 = gwy;
+    x = 0;
+    for (y = 0; y2 <= y; y -= dy) {
+        Graph_ToGWCoordinate();
+        GraphicsWindow.DrawLine(gwx1, gwy, gwx2, gwy);
+        if (num) {
+            GraphicsWindow.DrawText(gwx + 2, gwy, y);
+        }
+    }
+    for (y = 0; y <= y1; y += dy) {
+        Graph_ToGWCoordinate();
+        GraphicsWindow.DrawLine(gwx1, gwy, gwx2, gwy);
+        if (num) {
+            GraphicsWindow.DrawText(gwx + 2, gwy, y);
+        }
+    }
+    y = 0;
+    for (x = 0; x1 <= x; x -= dx) {
+        Graph_ToGWCoordinate();
+        GraphicsWindow.DrawLine(gwx, gwy1, gwx, gwy2);
+        if (num) {
+            GraphicsWindow.DrawText(gwx + 2, gwy, x);
+        }
+    }
+    for (x = 0; x <= x2; x += dx) {
+        Graph_ToGWCoordinate();
+        GraphicsWindow.DrawLine(gwx, gwy1, gwx, gwy2);
+        if (num) {
+            GraphicsWindow.DrawText(gwx + 2, gwy, x);
+        }
+    }
+}
+```
+
+## 5. Form
+
+Form function (subroutine) shows the graphics window with UI for this program.
+
+```csharp
+public void Form() {
+    // Form - draw UI form
+    gw = 598;
+    gh = 428;
+    GraphicsWindow.Width = gw;
+    GraphicsWindow.Height = gh;
+    GraphicsWindow.BackgroundColor = "LightGray";
+    GraphicsWindow.FontName = "Arial";
+    x = 10;
+    width = gw - 20;
+    y = 30;
+    height = gh - 40;
+    Graph_SetGWViewPort(x, y, width, height);
+    GraphicsWindow.BrushColor = "White";
+    GraphicsWindow.FillRectangle(x, y, width, height);
+    x1 = -6.5;
+    x2 = 6.5;
+    width = x2 - x1;
+    height = -width / (gw - 20) * (gh - 40);
+    y1 = -height / 2;
+    y2 = height / 2;
+    Graph_SetLogicalViewPort(x1, y1, width, height);
+    Fx_GetProperties();
+    GraphicsWindow.BrushColor = "Black";
+    GraphicsWindow.DrawText(10, 10, "y=" + textFx);
+    GraphicsWindow.PenColor = "#99FFFF";
+    dx = 0.1;
+    dy = 0.1;
+    Graph_DrawGrid();
+    GraphicsWindow.PenColor = "#77CCCC";
+    GraphicsWindow.BrushColor = "#559999";
+    dx = 1;
+    dy = 1;
+    num = "True";
+    Graph_DrawGrid();
+    GraphicsWindow.PenColor = "Gray";
+    GraphicsWindow.DrawRectangle(10, 30, gw - 20, gh - 40);
+    ox = gwx1 + 300;
+    oy = gwy1 + 300;
+}
+```
+
+## 6. Main
+
+Following code is the main routine of this program.
+
+```csharp
+// Main
+GraphicsWindow.Title = "Graph 0.8";
+Form();
+GraphicsWindow.PenColor = "DimGray";
+dx = 0.01;
+for (p = 1; p <= part; p++) {
+    Graph_Draw();
+}
+```

@@ -19,6 +19,9 @@ This project contains Xamarin Workbooks to learn programming with Microsoft Smal
 |1|Array|✓|✓|
 |2|Clock|✓|✓|
 |3|Controls| |✓|
+|6|File|✓|✓|
+|10|Math|✓|✓|
+|14|Shapes| |✓|
 |15|Sound| |✓|
 |16|Stack|✓|✓|
 |19|Timer| |✓|

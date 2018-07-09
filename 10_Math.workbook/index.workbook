@@ -147,11 +147,17 @@ Math.NaturalLog(e)
 
 #### 10.3.15 Power Method
 
+Following picture shows a graph of `y = Math.Power(2, x)`.
+
+![Power](Power.png)
+
 ```csharp
 Math.Power(19, 2)
 ```
 
 #### 10.3.16 Remainder Method
+
+Following picture shows a graph of `y = Math.Remainder(x, 2)`.
 
 ![Remainder](Remainder.png)
 
